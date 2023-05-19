@@ -1,6 +1,9 @@
 #UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE
 #INTEGRANTES: CAMILA PAREDES, BRYAN ORTIZ, PAMELA CARRIEL
-#EJEMPLO DE PILAS
+#NRC: 9898
+#FECHA: 17/05/2023
+#EJEMPLO DE PILAS 
+#Esto es un cambio de prueba 
 class Pila:
     def __init__(self):
         self.items = []
