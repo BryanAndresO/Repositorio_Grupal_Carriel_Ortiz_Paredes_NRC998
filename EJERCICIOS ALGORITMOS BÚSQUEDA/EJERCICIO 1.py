@@ -17,4 +17,4 @@ posicion = busqueda_lineal(lista, numero_objetivo)  # Realiza la búsqueda linea
 if posicion != -1:  # Si la posición es diferente de -1, el número objetivo se encontró en la lista
     print("El número", numero_objetivo, "se encuentra en la posición", posicion)
 else:
-    print("El número", numero_objetivo, "no está presente en la lista.")
+    print("El número", numero_objetivo, "no está en la lista.")
