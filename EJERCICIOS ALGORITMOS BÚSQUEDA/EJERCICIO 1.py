@@ -9,7 +9,7 @@ def busqueda_lineal(lista, objetivo):
             return indice  # Devuelve la posición del número objetivo si se encuentra
     return -1  # Devuelve -1 si el número objetivo no está presente
 
-numero_objetivo = int(input("Ingrese el número objetivo: "))  # Solicita al usuario el número objetivo
+numero_objetivo = int(input("Ingrese el número que quiere buscar: "))  # Solicita al usuario el número objetivo
 lista = [2, 5, 8, 10, 13, 18, 20]  # Crea una lista de números enteros
 
 posicion = busqueda_lineal(lista, numero_objetivo)  # Realiza la búsqueda lineal en la lista
