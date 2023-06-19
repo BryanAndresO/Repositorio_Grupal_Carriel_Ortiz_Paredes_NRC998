@@ -10,13 +10,24 @@ def exchange_sort(arr):
 
 # Ejemplo de uso
 array = [64, 34, 25, 12, 22, 11, 90]
-exchange_sort(array)
+# Número de repeticiones para obtener el promedio
+num_repetitions = 100
+
+total_execution_time = 0
+
+for _ in range(num_repetitions):
+    # Medir tiempo de ejecución
+    start_time = time.time()
+    exchange_sort(array)
+    end_time = time.time()
+
+    # Calcular tiempo transcurrido en milisegundos
+    execution_time = (end_time - start_time) * 1000
+    total_execution_time += execution_time
+
+# Calcular promedio del tiempo de ejecución
+average_execution_time = total_execution_time / num_repetitions
+
 print("Array ordenado:")
 print(array)
-
-# Medir el tiempo de ejecución
-start_time = time.time()
-exchange_sort(array)
-end_time = time.time()
-
-print("Tiempo de ejecución:", end_time - start_time)
+print("Tiempo de ejecución promedio: {:.3f} milisegundos".format(average_execution_time))
