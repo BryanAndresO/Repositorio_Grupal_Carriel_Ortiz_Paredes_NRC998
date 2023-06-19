@@ -1,3 +1,4 @@
+#Integrantes: Carriel Pamela, Ortiz Bryan, Paredes Camila
 def busqueda_lineal(lista, objetivo):
     """
     Realiza una búsqueda lineal en una lista de números enteros.
