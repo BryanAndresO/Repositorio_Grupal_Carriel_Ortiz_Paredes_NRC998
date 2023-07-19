@@ -1,3 +1,8 @@
+"""Universidad de las Fuerzas Armadas ESPE
+Integrantes: Carriel Pamela, Ortiz Bryan
+NRC:9898
+Fecha: miércoles 19 de julio del 2023
+"""
 def subset_sum_backtracking(nums, target):
     def backtrack(start, target, path):
         if target == 0:
