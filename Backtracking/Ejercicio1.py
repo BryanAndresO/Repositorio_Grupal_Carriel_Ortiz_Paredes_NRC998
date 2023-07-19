@@ -1,6 +1,7 @@
 """Universidad de las Fuerzas Armadas ESPE
 Integrantes: Carriel Pamela, Ortiz Bryan
 NRC:9898
+Tema: Suma de Subconjuntos
 Fecha: miércoles 19 de julio del 2023
 """
 def subset_sum_backtracking(nums, target):
