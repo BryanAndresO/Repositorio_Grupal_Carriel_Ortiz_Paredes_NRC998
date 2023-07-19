@@ -19,8 +19,6 @@ def encontrar_combinaciones_con_suma_exacta(nums, suma_objetivo):
     nums.sort()
     backtrack(0, 0, [])
     return combinaciones
-
-# Ejemplo de uso:
 if __name__ == "__main__":
     nums = [2, 4, 6, 3]
     suma_objetivo = 6

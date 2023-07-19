@@ -19,8 +19,6 @@ def encontrar_subconjuntos_con_suma_exacta(nums, suma_objetivo):
     nums.sort()
     backtrack(0, suma_objetivo, [])
     return subconjuntos
-
-# Ejemplo de uso:
 if __name__ == "__main__":
     nums = [3, 1, 4, 2, 5]
     suma_objetivo = 7
