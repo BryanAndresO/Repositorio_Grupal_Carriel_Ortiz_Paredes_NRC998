@@ -1,29 +1,27 @@
 """Universidad de las Fuerzas Armadas ESPE
 Integrantes: Carriel Pamela, Ortiz Bryan
 NRC:9898
-Tema: Subconjuntos son Suma Exacta
+Tema: Combinaiones 
 Fecha: miércoles 19 de julio del 2023
-"""
-def Buscar_subconj_sumexact(num, Suma_objetivo):
-    def backtrack(start, target, current_subset):
-        if target == 0:
-            subsets.append(current_subset[:])
+""" 
+def encontrar_combinaciones_con_suma_exacta(nums, suma_objetivo):
+    def backtrack(inicio, suma_actual, combinacion_actual):
+        if suma_actual == suma_objetivo:
+            combinaciones.append(combinacion_actual[:])
             return
-        for i in range(start, len(num)):
-            if target - num[i] >= 0:
-                current_subset.append(num[i])
-                backtrack(i + 1, target - num[i], current_subset)
-                current_subset.pop()
+        for i in range(inicio, len(nums)):
+            if suma_actual + nums[i] <= suma_objetivo:
+                combinacion_actual.append(nums[i])
+                backtrack(i, suma_actual + nums[i], combinacion_actual)
+                combinacion_actual.pop()
 
-    subsets = []
-    num.sort()
-    backtrack(0, Suma_objetivo, [])
-    return subsets
-
-# Ejemplo de uso:
+    combinaciones = []
+    nums.sort()
+    backtrack(0, 0, [])
+    return combinaciones
 if __name__ == "__main__":
-    nums = [3, 1, 4, 2, 5]
-    target_sum = 7
-    result = Buscar_subconj_sumexact(nums, target_sum)
-    print("Subconjuntos con suma igual a", target_sum, ":")
-    print(result)
+    nums = [2, 4, 6, 3]
+    suma_objetivo = 6
+    resultado = encontrar_combinaciones_con_suma_exacta(nums, suma_objetivo)
+    print("Combinaciones con suma igual a", suma_objetivo, ":")
+    print(resultado)
