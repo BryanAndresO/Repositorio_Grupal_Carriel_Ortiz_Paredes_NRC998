@@ -1,7 +1,7 @@
 """Universidad de las Fuerzas Armadas ESPE
 Integrantes: Carriel Pamela, Ortiz Bryan
 NRC:9898
-Tema: Combinaiones 
+Tema: Subconjuntos con Suma Exacta
 Fecha: miércoles 19 de julio del 2023
 """ 
 def encontrar_combinaciones_con_suma_exacta(nums, suma_objetivo):
