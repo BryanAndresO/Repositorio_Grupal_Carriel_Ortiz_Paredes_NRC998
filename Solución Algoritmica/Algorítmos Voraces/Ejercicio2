@@ -1,0 +1,36 @@
+#UNIVERSIDAD DE LAS FUERZAS ARMADAS "ESPE"
+#INTEGRANTES: CARRIEL PAMELA, ORTIZ BRYAN, PAREDES CAMILA
+#NRC: 9898
+#FECHA: 21/07/2023
+import math
+
+def distance(city1, city2):
+    return math.sqrt((city1[0] - city2[0])**2 + (city1[1] - city2[1])**2)
+
+def nearest_neighbor_tsp(cities):
+    num_cities = len(cities)
+    visited = [False] * num_cities
+    path = []
+    current_city = 0  # Iniciar desde la ciudad 0
+    visited[current_city] = True
+    path.append(current_city)
+
+    for _ in range(num_cities - 1):
+        nearest_distance = float('inf')
+        nearest_city = None
+        for next_city in range(num_cities):
+            if not visited[next_city]:
+                dist = distance(cities[current_city], cities[next_city])
+                if dist < nearest_distance:
+                    nearest_distance = dist
+                    nearest_city = next_city
+        current_city = nearest_city
+        visited[current_city] = True
+        path.append(current_city)
+
+    return path
+
+# Ejemplo de uso:
+cities = [(0, 0), (1, 2), (4, 0), (5, 3)]
+path = nearest_neighbor_tsp(cities)
+print("Ruta más corta:", path)

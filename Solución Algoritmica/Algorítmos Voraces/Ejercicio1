@@ -1,0 +1,30 @@
+#UNIVERSIDAD DE LAS FUERZAS ARMADAS "ESPE"
+#INTEGRANTES: CARRIEL PAMELA, ORTIZ BRYAN, PAREDES CAMILA
+#NRC: 9898
+#FECHA: 21/07/2023
+def fractional_knapsack(items, capacity):
+    items.sort(key=lambda x: x[1] / x[0], reverse=True)  # Ordenar por valor/peso en forma descendente
+    total_value = 0.0
+    knapsack = []
+
+    for item in items:
+        if capacity >= item[0]:
+            knapsack.append((item[0], item[1], 1))
+            capacity -= item[0]
+            total_value += item[1]
+        else:
+            fraction = capacity / item[0]
+            knapsack.append((capacity, item[1] * fraction, fraction))
+            total_value += item[1] * fraction
+            break
+
+    return knapsack, total_value
+
+# Ejemplo de uso:
+items = [(10, 60), (20, 100), (30, 120)]
+capacity = 50
+result, value = fractional_knapsack(items, capacity)
+print("Elementos seleccionados:")
+for item in result:
+    print(f"Peso: {item[0]}, Valor: {item[1]}, Fracción: {item[2]}")
+print("Valor total en la mochila:", value)
