@@ -1,0 +1,20 @@
+#UNIVERSIDAD DE LAS FUERZAS ARMADAS "ESPE"
+#INTEGRANTES: CARRIEL PAMELA, ORTIZ BRYAN, PAREDES CAMILA
+#NRC: 9898
+#FECHA: 21/07/2023
+def find_coin_combinations(coins, target_amount, current_combination=[], start_index=0):
+    if sum(current_combination) == target_amount:
+        print(current_combination)
+        return
+
+    if sum(current_combination) > target_amount:
+        return
+
+    for i in range(start_index, len(coins)):
+        current_combination.append(coins[i])
+        find_coin_combinations(coins, target_amount, current_combination, i)
+        current_combination.pop()
+
+coins = [1, 5, 10, 25]
+target_amount = 30
+find_coin_combinations(coins, target_amount)

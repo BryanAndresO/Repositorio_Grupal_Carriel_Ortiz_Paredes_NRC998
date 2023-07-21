@@ -1,0 +1,23 @@
+#UNIVERSIDAD DE LAS FUERZAS ARMADAS "ESPE"
+#INTEGRANTES: CARRIEL PAMELA, ORTIZ BRYAN, PAREDES CAMILA
+#NRC: 9898
+#FECHA: 21/07/2023
+def is_safe(board, row, col):
+    for i in range(row):
+        if board[i] == col or abs(board[i] - col) == abs(i - row):
+            return False
+    return True
+
+def find_queen_placements(n, row=0, board=[]):
+    if row == n:
+        print(board)
+        return
+
+    for col in range(n):
+        if is_safe(board, row, col):
+            board.append(col)
+            find_queen_placements(n, row + 1, board)
+            board.pop()
+
+n = 4
+find_queen_placements(n)
