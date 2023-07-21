@@ -1,16 +1,35 @@
-def combinaciones_backtracking(conjunto, tamano, inicio=0, combinacion_actual=[]):
-    if len(combinacion_actual) == tamano:
-        print(combinacion_actual)
-        return
+def is_valid_move(maze, x, y):
+    rows = len(maze)
+    cols = len(maze[0])
+    return 0 <= x < rows and 0 <= y < cols and maze[x][y] == 0
 
-    for i in range(inicio, len(conjunto)):
-        combinacion_actual.append(conjunto[i])
-        combinaciones_backtracking(conjunto, tamano, i + 1, combinacion_actual)
-        combinacion_actual.pop()
+def solve_maze_backtracking(maze):
+    def backtrack(x, y, path):
+        if x == len(maze) - 1 and y == len(maze[0]) - 1:
+            solutions.append(path)
+            return
+        
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            new_x, new_y = x + dx, y + dy
+            if is_valid_move(maze, new_x, new_y):
+                maze[new_x][new_y] = -1  # Mark the cell as visited
+                backtrack(new_x, new_y, path + [(new_x, new_y)])
+                maze[new_x][new_y] = 0   # Backtrack: unmark the cell
+
+    start_x, start_y = 0, 0
+    solutions = []
+    backtrack(start_x, start_y, [(start_x, start_y)])
+    return solutions
 
 # Ejemplo de uso:
-conjunto = [1, 2, 3, 4]
-tamano_subconjunto = 2
+maze_example = [
+    [0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0],
+    [1, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 1, 0, 1, 0]
+]
 
-print(f"Combinaciones de tamaño {tamano_subconjunto}:")
-combinaciones_backtracking(conjunto, tamano_subconjunto)
+solutions = solve_maze_backtracking(maze_example)
+for i, solution in enumerate(solutions):
+    print(f"Solución {i + 1}: {solution}")
