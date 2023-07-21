@@ -24,7 +24,6 @@ def merge(izquierda, derecha):
     result.extend(derecha[j:])
     return result
 
-# Ejemplo de uso:
 conjunto_numeros = [38, 27, 43, 3, 9, 82, 10]
 resultado = merge_sort(conjunto_numeros)
 print("Conjunto de números ordenado:", resultado)
