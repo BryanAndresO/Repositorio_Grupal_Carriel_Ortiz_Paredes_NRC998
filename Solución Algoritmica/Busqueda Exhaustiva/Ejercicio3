@@ -1,0 +1,17 @@
+#UNIVERSIDAD DE LAS FUERZAS ARMADAS "ESPE"
+#INTEGRANTES: CARRIEL PAMELA, ORTIZ BRYAN, PAREDES CAMILA
+#NRC: 9898
+#FECHA: 21/07/2023
+def find_combinations(elements, subset_size, current_combination=[], start_index=0):
+    if len(current_combination) == subset_size:
+        print(current_combination)
+        return
+
+    for i in range(start_index, len(elements)):
+        current_combination.append(elements[i])
+        find_combinations(elements, subset_size, current_combination, i + 1)
+        current_combination.pop()
+
+elements = [1, 2, 3, 4]
+subset_size = 2
+find_combinations(elements, subset_size)

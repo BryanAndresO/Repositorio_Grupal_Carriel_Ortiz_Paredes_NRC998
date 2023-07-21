@@ -1,0 +1,16 @@
+#UNIVERSIDAD DE LAS FUERZAS ARMADAS "ESPE"
+#INTEGRANTES: CARRIEL PAMELA, ORTIZ BRYAN, PAREDES CAMILA
+#NRC: 9898
+#FECHA: 21/07/2023
+def find_string_permutations(string, current_permutation=""):
+    if not string:
+        print(current_permutation)
+        return
+
+    for i in range(len(string)):
+        new_permutation = current_permutation + string[i]
+        remaining_string = string[:i] + string[i + 1:]
+        find_string_permutations(remaining_string, new_permutation)
+
+input_string = "ABC"
+find_string_permutations(input_string)
